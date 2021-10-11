@@ -12,7 +12,7 @@ package main
 
 import (
     "log"
-    "github.com/arivum/resource-ticker/pkg/resources"
+    "github.com/arivum/resource-ticker"
 )
 
 func main() {
