@@ -1,0 +1,27 @@
+name: Go
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Get the version
+      id: release_name
+      run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
+      
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.17
+
+    - name: Test
+      run: go test -v ./...
+      
+    - name: Push
+      run: GOPROXY=proxy.golang.org go list -m github.com/arivum/resource-ticker/pkg/resources@${{ steps.release_name.outputs.VERSION }}
