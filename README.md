@@ -4,7 +4,7 @@ This module wraps RAM and CPU resource information gathering.
 
 Cgroups and cgroups2 are supported. If none of them is active, fallback to procfs provides resource information.
 
-See [documentation](https://pkg.go.dev/github.com/arivum/resource-ticker/pkg/resources)
+See [general documenation](https://pkg.go.dev/github.com/arivum/resource-ticker) and [package documentation](https://pkg.go.dev/github.com/arivum/resource-ticker/pkg/resources)
 
 ## How to use
 
