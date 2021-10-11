@@ -22,6 +22,17 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      with:
+        tag_name: ${{ steps.release_name.outputs.VERSION }}
+        release_name: Release ${{ steps.release_name.outputs.VERSION }}
+        draft: false
+        prerelease: false
       
     - name: Push
-      run: GOPROXY=proxy.golang.org go list -m github.com/arivum/resource-ticker/pkg/resources@${{ steps.release_name.outputs.VERSION }}
+      run: GOPROXY=proxy.golang.org go list -m github.com/arivum/resource-ticker@${{ steps.release_name.outputs.VERSION }}
