@@ -1,4 +1,4 @@
-# resource-ticker
+# ResourceTicker
 
 This module wraps RAM and CPU resource information gathering.
 
