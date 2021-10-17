@@ -9,6 +9,7 @@ package resources
 
 import (
 	"io"
+	"io/ioutil"
 	"os"
 	"strconv"
 	"strings"
@@ -23,7 +24,7 @@ func readUint64FromFile(file *os.File) (uint64, error) {
 	if _, err = file.Seek(0, io.SeekStart); err != nil {
 		return 0, err
 	}
-	if rawNumber, err = io.ReadAll(file); err != nil {
+	if rawNumber, err = ioutil.ReadAll(file); err != nil {
 		return 0, err
 	}
 	if number, err = strconv.ParseUint(strings.TrimSpace(string(rawNumber)), 10, 64); err != nil {
