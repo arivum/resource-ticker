@@ -7,5 +7,5 @@ require (
 	github.com/cheggaaa/pb v1.0.29
 	github.com/fatih/color v1.13.0
 	github.com/hashicorp/go-multierror v1.1.1
-	github.com/sirupsen/logrus v1.8.1
+	github.com/sirupsen/logrus v1.9.0
 )
